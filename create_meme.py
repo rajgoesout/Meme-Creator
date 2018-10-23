@@ -3,6 +3,7 @@ import textwrap
 
 
 def generate_meme(image_path, top_text, bottom_text='', font_path='./fonts/impact/Impacted.ttf', font_size=9):
+	"""Method to create a meme using an image and text strings."""
 	im = Image.open(image_path)
 	draw = ImageDraw.Draw(im)
 	image_width, image_height = im.size
@@ -16,9 +17,6 @@ def generate_meme(image_path, top_text, bottom_text='', font_path='./fonts/impac
 	chars_per_line = image_width // char_width
 	top_lines = textwrap.wrap(top_text, width=chars_per_line)
 	bottom_lines = textwrap.wrap(bottom_text, width=chars_per_line)
-
-	print(top_lines)
-	print(bottom_lines)
 
 	y = 10
 	for line in top_lines:
